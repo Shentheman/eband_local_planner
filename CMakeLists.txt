@@ -5,7 +5,6 @@ project(eband_local_planner)
 find_package(catkin REQUIRED
   COMPONENTS
     base_local_planner
-    cmake_modules
     control_toolbox
     costmap_2d
     dynamic_reconfigure
@@ -18,7 +17,14 @@ find_package(catkin REQUIRED
     tf_conversions
 )
 
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3)
+if(NOT EIGEN3_FOUND)
+  # Fallback to cmake_modules
+  find_package(cmake_modules REQUIRED)
+  find_package(Eigen REQUIRED)
+  set(Eigen3_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS})
+endif()
+
 include_directories(
   include
   ${Eigen3_INCLUDE_DIRS}
