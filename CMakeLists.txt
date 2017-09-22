@@ -15,14 +15,15 @@ find_package(catkin REQUIRED
     roscpp
     tf
     tf_conversions
+    cmake_modules
 )
 
-find_package(Eigen3)
-if(NOT EIGEN3_FOUND)
+find_package(Eigen REQUIRED)
+if(NOT EIGEN_FOUND)
   # Fallback to cmake_modules
   find_package(cmake_modules REQUIRED)
   find_package(Eigen REQUIRED)
-  set(Eigen3_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS})
+  set(Eigen_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS})
 endif()
 
 include_directories(
