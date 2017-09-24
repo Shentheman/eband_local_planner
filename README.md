@@ -10,3 +10,5 @@ It implements the Elastic Band method on the SE2 manifold.
 
 # Installation
 * You have to install the release version of the original [`utexas-bwi/eband_local_planner`](https://github.com/utexas-bwi/eband_local_planner) first by `$ sudo apt-get install ros-indigo-eband-local-planner` before being able to build this package. Otherwise, an error about the missing file [`eband_local_planner/EBandPlannerConfig.h`](https://github.com/Shentheman/eband_local_planner/blob/kinetic/include/eband_local_planner/eband_visualization.h#L46) will raise. That should be a bug of [`ros-autom/eband_local_planner`](https://github.com/ros-autom/eband_local_planner).
+  * After you build the package, you can find the missing file `EBandPlannerConfig.h` at `./devel/.private/eband_local_planner/include/eband_local_planner/EBandPlannerConfig.h`
+  * So we could solve this issue by putting the missing file `EBandPlannerConfig.h` at `./include/eband_local_planner/EBandPlannerConfig.h`
